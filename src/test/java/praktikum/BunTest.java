@@ -2,19 +2,19 @@ package praktikum;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class BunTest {
+public class BunTest{
 
-    private String bunName = "BunName";
-    private float bunPrice = 30;
-    private Bun bun = new Bun(bunName, bunPrice);
+    private final String bunName = "BunName";
+    private final float bunPrice = 30;
+    private final Bun bun = new Bun(bunName, bunPrice);
 
     @Test
-    public void getName() {
+    public void getName(){
         assertEquals (bunName, bun.getName());
     }
 
     @Test
-    public void getPrice() {
+    public void getPrice(){
         assertEquals (bunPrice, bun.getPrice(), 0);
     }
 

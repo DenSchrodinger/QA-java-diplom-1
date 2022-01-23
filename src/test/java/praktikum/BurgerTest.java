@@ -1,5 +1,4 @@
 package praktikum;
-
 import org.junit.Test;
 import org.mockito.Mock;
 import org.junit.Assert;
@@ -9,15 +8,16 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BurgerTest {
-
+public class BurgerTest{
     Burger burger = new Burger();
+
     @Mock
     private Ingredient ingredientMock;
+
     @Mock
     private Bun bunMock;
 
-    private void ingredientMockCount(int count) {
+    private void ingredientMockCount(int count){
         for (int i = 1; i <= count; i++) {
             ingredientMock.price = i;
             burger.addIngredient(ingredientMock);
@@ -25,14 +25,14 @@ public class BurgerTest {
     }
 
     @Test
-    public void addIngredientTest() {
+    public void addIngredientTest(){
         ingredientMockCount(3);
         int expected = 3;
         Assert.assertEquals(expected, burger.ingredients.size());
     }
 
     @Test
-    public void removeIngredientTest() {
+    public void removeIngredientTest(){
         ingredientMockCount(3);
         burger.removeIngredient(0);
         int sizeExpected = 2;
@@ -42,7 +42,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void moveIngredientTest() {
+    public void moveIngredientTest(){
         ingredientMockCount(3);
         int index = 0;
         int newIndex = 2;
@@ -52,7 +52,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void getPriceTest() {
+    public void getPriceTest(){
         ingredientMockCount(2);
         float expected = 20;
         when(bunMock.getPrice()).thenReturn(4f);
@@ -62,7 +62,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void getReceiptTest() {
+    public void getReceiptTest(){
         Database database = new Database();
         burger.setBuns(bunMock);
         for(int i = 1; i <= 2; i++) {
